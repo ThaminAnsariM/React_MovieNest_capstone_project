@@ -27,7 +27,7 @@ function MovieCard({ show }) {
       <p className="text-sm font-medium text-gray-500 mt-1">
         {new Date (show.release_date).getFullYear()} · {show.genres.slice(0,2).map(genre => genre.name).join(" | ")} · {Math.floor(show.runtime / 60)}h {show.runtime % 60}m
       </p>
-       </Link>
+      
       {/* Rating & Button */}
       <div className="flex justify-between items-center mt-4">
         <div className="flex items-center text-yellow-500 gap-1 text-sm">
@@ -39,6 +39,7 @@ function MovieCard({ show }) {
           Book Now
         </button>
       </div>
+       </Link>
     </div>
    
   );

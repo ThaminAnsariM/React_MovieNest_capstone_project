@@ -27,7 +27,7 @@ function Nav() {
 
   return (
     <>
-      <div className="flex justify-between items-center w-full px-4 py-2 bg-transparent relative">
+      <div className="flex justify-around items-center w-full px-4 py-2 bg-transparent relative">
         {/* Logo */}
         <Link to="/">
           <h1 className="text-2xl sm:text-4xl font-bold text-orange-500">
@@ -36,7 +36,7 @@ function Nav() {
         </Link>
 
         {/* Desktop Nav Links */}
-        <div className="hidden sm:flex items-center gap-x-6 border bg-orange-50 border-orange-500 rounded-2xl px-4 py-2 mr-45">
+        <div className="hidden sm:flex items-center gap-x-6 border bg-orange-50 border-none rounded-2xl px-4 py-2 mr-45">
           <Link
             to="/"
             className="font-semibold text-gray-700 hover:text-orange-500"
@@ -55,6 +55,13 @@ function Nav() {
           >
             Favourites
           </Link>
+          <Link
+            to="/admin"
+            className="font-semibold text-gray-700 hover:text-orange-500"
+          >
+            Admin
+          </Link>
+
         </div>
 
         {/* User Auth & Menu Button */}

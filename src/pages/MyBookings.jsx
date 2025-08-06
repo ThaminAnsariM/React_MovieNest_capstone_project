@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { FaRegCalendar } from "react-icons/fa";
 import { BsClock, BsCurrencyRupee } from "react-icons/bs";
 import { useAppContext } from "../context/AppContext";
+import { Link } from "react-router";
 
 function MyBookings() {
   const [booking, setBooking] = useState([]);
   const { axios, getToken, user, image_base_url } = useAppContext();
+
+  console.log('pauymen',booking)
 
 const getMyBookings = async () => {
   try {
@@ -84,9 +87,12 @@ const getMyBookings = async () => {
                   <BsCurrencyRupee /> {item.amount}
                 </div>
                 {!item.isPaid && (
+                  <Link to={item.paymentLink}>
                   <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 text-sm rounded-full transition">
                     Pay Now
                   </button>
+                  </Link>
+                  
                 )}
               </div>
             </div>
