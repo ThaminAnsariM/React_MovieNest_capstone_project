@@ -1,10 +1,11 @@
 import { FaStar } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useAppContext } from "../context/AppContext";
 
 function MovieCard({ show }) {
 
-  const {image_base_url} = useAppContext()
+  const {image_base_url,user} = useAppContext()
+  const Navigate = useNavigate();
 
   
  
@@ -34,12 +35,12 @@ function MovieCard({ show }) {
           <FaStar />
           <span className="text-gray-700">{show.vote_average.toFixed(1)}</span>
         </div>
-
-        <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-3 py-1.5 rounded-md transition duration-200">
+        
+        <button  className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-3 py-1.5 rounded-md transition duration-200">
           Book Now
         </button>
       </div>
-       </Link>
+      </Link>
     </div>
    
   );

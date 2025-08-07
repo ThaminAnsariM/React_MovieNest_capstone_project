@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router";
+import { useParams, Link, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
@@ -6,11 +6,15 @@ import Dateselect from "../component/Dateselect";
 import { useAppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
 import Loading from "../component/Loading";
+import { useClerk,useUser } from "@clerk/clerk-react";
+
 
 function MovieDetiles() {
   const [movieDetails, setMovieDetails] = useState(null);
   console.log("Movie Details:", movieDetails);
   const { id } = useParams();
+  const { openSignIn } = useClerk();
+  
   const {
     shows,
     axios,
@@ -50,6 +54,14 @@ function MovieDetiles() {
       console.error(error);
     }
   };
+
+  const { isLoaded, isSignedIn } = useUser();
+
+useEffect(() => {
+  if (isLoaded && !isSignedIn) {
+    openSignIn();
+  }
+}, [isLoaded, isSignedIn]);
 
   useEffect(() => {
     if (user) {
