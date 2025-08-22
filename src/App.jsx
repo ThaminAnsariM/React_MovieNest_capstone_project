@@ -17,6 +17,7 @@ import Listbooking from "./pages/Admin/Listbooking";
 import { useAppContext } from "./context/AppContext";
 import ProtectedAdminRoute from "./component/Admin/ProtectedAdminRoute";
 import Loading from "./component/Loading";
+import DebugToken from "./component/DebugToken";
 
 function App() {
   const isAdminRout = useLocation().pathname.startsWith("/admin");
@@ -51,6 +52,7 @@ function App() {
       </Routes>
 
       {!isAdminRout && <Footer></Footer>}
+      <DebugToken /> 
     </>
   );
 }
